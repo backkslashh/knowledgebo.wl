@@ -17,10 +17,10 @@ function newQuestion(callback, room) {
         query = "select * from `Questions` WHERE `Metadata` LIKE '%" + category + "%' ORDER BY Rand() LIMIT 1";
     }
     var connection = mysql.createPool({
-      host     : '',
-      user     : '',
-      password : '',
-      database : ''
+      host     : '70.32.23.82',
+      user     : 'eduriaor_root',
+      password : 'puLLedpOrk',
+      database : 'eduriaor_KBOnline'
     });
     connection.query(query, function newQuestion(err, result, fields) {
       callback(JSON.stringify(result));
