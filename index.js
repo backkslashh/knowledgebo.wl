@@ -304,7 +304,7 @@ function resumeReading(room) {
 }
 
 io.on('connection', (socket) => {
-    var room = socket.handshake.query.room.toLowerCase();
+    var room = socket.handshake.query.room;
     var name = socket.handshake.query.name;
     socket.join(room);
 
