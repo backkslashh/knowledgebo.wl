@@ -314,6 +314,8 @@ io.on('connection', (socket) => {
 
     add_player(room, socket.id, name);
 
+    io.to(room).emit('question sent', roomsInfo[room]["readQuestion"]);
+
     socket.on('changed name', (msg) => {
         if (not_blank(msg)) {
             roomsInfo[room]["players"][socket.id]['name'] = msg.substring(0, 30);
@@ -342,9 +344,15 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
         delete roomsInfo[room]["players"][socket.id]
-        io.to(room).emit('players changed', roomsInfo[room]["players"]);
-        roomsInfo[room]["buzzQueue"] = roomsInfo[room]["buzzQueue"].filter(element => element !== socket.id);
-        io.to(room).emit('queue changed', roomsInfo[room]["buzzQueue"]);
+        console.log(Object.keys(roomsInfo[room]["players"]).length);
+        if (Object.keys(roomsInfo[room]["players"]).length === 0) {
+          delete roomsInfo[room];
+          console.log('room deleted')
+        } else {
+          io.to(room).emit('players changed', roomsInfo[room]["players"]);
+          roomsInfo[room]["buzzQueue"] = roomsInfo[room]["buzzQueue"].filter(element => element !== socket.id);
+          io.to(room).emit('queue changed', roomsInfo[room]["buzzQueue"]);
+        }
     })
 
     socket.on('next question', () => {
