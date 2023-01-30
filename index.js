@@ -7,6 +7,67 @@ const io = new Server(server);
 const mysql = require('mysql');
 var word2num = require('words-to-numbers');
 const stringSimilarity = require("string-similarity");
+var adjectives = [
+  "attractive",
+  "bald",
+  "beautiful",
+  "chubby",
+  "clean",
+  "dazzling",
+  "drab",
+  "elegant",
+  "fancy",
+  "fit",
+  "flabby",
+  "glamorous",
+  "gorgeous",
+  "handsome",
+  "long",
+  "magnificent",
+  "muscular",
+  "plain",
+  "plump",
+  "quaint",
+  "scruffy",
+  "shapely",
+  "short",
+  "skinny",
+  "stocky",
+  "ugly",
+  "unkempt",
+  "unsightly"
+];
+var nouns = [
+  "lizard",
+  "bull",
+  "anteater",
+  "wombat",
+  "boar",
+  "crow",
+  "polar bear",
+  "chimpanzee",
+  "shrew",
+  "fish",
+  "camel",
+  "pronghorn",
+  "mole",
+  "finch",
+  "basilisk",
+  "hyena",
+  "yak",
+  "skunk",
+  "chameleon",
+  "chipmunk",
+  "frog",
+  "badger",
+  "ibex",
+  "newt",
+  "addax",
+  "bumble bee",
+  "mule",
+  "gemsbok",
+  "ermine"
+]
 
 
 function newQuestion(callback, room) {
