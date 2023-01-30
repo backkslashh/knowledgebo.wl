@@ -75,7 +75,7 @@ function newQuestion(callback, room) {
     var category = room.toLowerCase();
     var query = "select * from `Questions` ORDER BY Rand() LIMIT 1";
     if(category_list.includes(category)) {
-        query = "select * from `Questions` WHERE `Metadata` LIKE '%" + category + "%' ORDER BY Rand() LIMIT 1";
+        query = "select * from `Questions` WHERE `Metadata` LIKE '% " + category + " %' ORDER BY Rand() LIMIT 1";
     }
     var connection = mysql.createPool({
       host     : '70.32.23.82',
