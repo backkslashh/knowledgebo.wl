@@ -7,7 +7,7 @@ Play Knowledge Bowl Online with Friends
 Clone the project
 
 ```bash
-  git clone https://github.com/danielj20/KBPractice-Multiplayer.git
+  git clone https://github.com/danielj20/KBPractice-Demo.git
 ```
 
 Go to the project directory
