@@ -77,15 +77,7 @@ function newQuestion(callback, room) {
     if(category_list.includes(category)) {
         query = "select * from `Questions` WHERE `Metadata` LIKE '% " + category + " %' ORDER BY Rand() LIMIT 1";
     }
-    var connection = mysql.createPool({
-      host     : '70.32.23.82',
-      user     : 'eduriaor_root',
-      password : 'puLLedpOrk',
-      database : 'eduriaor_KBOnline'
-    });
-    connection.query(query, function newQuestion(err, result, fields) {
-      callback(JSON.stringify(result));
-    });
+    callback(JSON.stringify([{"ID":107103,"Subject":"Atomic Subtraction","Question":"Subtract the atomic number of lithium from the atomic number of uranium.","Answer":"89","Metadata":"atomic number chemistry element lithium periodic table physical science science uranium"}]));
 }
 
 function getNumChars(str) {
